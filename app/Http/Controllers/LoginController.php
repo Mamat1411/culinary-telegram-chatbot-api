@@ -21,8 +21,7 @@ class LoginController extends Controller
 
         $user = Auth::user();
         $token = $user->createToken('token')->plainTextToken;
-        dd($token);
-        $response = new LoginResource([
+        $response = new LoginResource((object)[
             'access_token' => $token,
             'token_type' => 'bearer'
         ]);
